@@ -1,0 +1,85 @@
+<div class="container main-container">
+  <div class="col-md-6">
+    <form novalidate [formGroup]='userForm' (ngSubmit)='saveUser()' class="text-center border border-light p-5 forms"
+      action="#!">
+
+      <p class="h4 mb-4">New User</p>
+
+
+      <input id="defaultForm-edit-name" class="form-control" formControlName='name' placeholder="User name"
+        [ngClass]="{'is-invalid' : displayMessage.name}" />
+
+      <span class="text-danger" *ngIf="displayMessage.name">
+        <p [innerHTML]="displayMessage.name"></p>
+      </span>
+      <br/>
+      <input id="defaultForm-edit-email" class="form-control" formControlName='email' placeholder="Email"
+        [ngClass]="{'is-invalid' : displayMessage.email}" />
+
+      <span class="text-danger" *ngIf="displayMessage.email">
+        <p [innerHTML]="displayMessage.email"></p>
+      </span>
+      <br/>
+
+      <input id="defaultForm-edit-code" class="form-control" formControlName='code' placeholder="code"
+        [ngClass]="{'is-invalid' : displayMessage.code}" />
+
+      <span class="text-danger" *ngIf="displayMessage.code">
+        <p [innerHTML]="displayMessage.code"></p>
+      </span>
+      <br/>
+      <input id="defaultForm-edit-password" class="form-control" formControlName='password' placeholder="Password"
+        [ngClass]="{'is-invalid' : displayMessage.password}" />
+
+      <span class="text-danger" *ngIf="displayMessage.password">
+        <p [innerHTML]="displayMessage.password"></p>
+      </span>
+      <br/>
+      <input id="defaultForm-edit-passConfirm" class="form-control" formControlName='passConfirm' placeholder="password Confirmation"
+        [ngClass]="{'is-invalid' : displayMessage.passConfirm}" />
+
+      <span class="text-danger" *ngIf="displayMessage.passConfirm">
+        <p [innerHTML]="displayMessage.passConfirm"></p>
+      </span>
+      <br/>
+
+      <select formControlName='position' class="browser-default custom-select" >
+        <option selected>Select the position</option>
+        <option *ngFor='let position of position' [value]='position.id'>{{position.name}}</option>
+
+      </select>
+      <br/>
+      <select formControlName='group' class="browser-default custom-select">
+        <option selected>Select the group</option>
+        <option *ngFor='let group of group' [value]='group.id'>{{group.name}}</option>
+
+      </select>
+      <br/>
+      <select formControlName='type' class="browser-default custom-select">
+        <option selected>Select the type</option>
+        <option *ngFor='let type of type' [value]='type.id'>{{type.name}}</option>
+
+      </select>
+
+
+
+
+      <input type="hidden" id="id" name="id" value="">
+
+
+
+
+      <!-- Sign in button -->
+      <br />
+      <button class="btn btn-outline-dark waves-effect" [disabled]='!userForm.valid' type="submit">Register</button>
+      <button type="button" class="btn btn-outline-dark waves-effect" [routerLink]="['/user/user-list']">Back</button>
+
+
+
+
+
+    </form>
+
+  </div>
+
+</div>

@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+.jumbotron {
+
+margin-right: auto;
+margin-left: auto;
+width: 750px;
+margin-top: 15rem;
+background-color: aliceblue;
+
+}
+.navbar {
+  background-color: aliceblue;
+}
+.navbar-brand {
+color: black !important;
+font-size: 20pt;
+font-weight: 500;
+}
+footer {
+  background-color: aliceblue !important;
+
+}
+.footer-copyright, a {
+  color: black !important;
+  font-weight: 500;
+}
+
+.md-pills .nav-link.active {
+  background-color: #3f51b5;
+}
+#base {
+  background-color: aliceblue !important;
+  margin: 3rem 0rem;
+  }
+  .type {
+    color: black !important;
+  }
+  .black-text {
+    font-size: 40px;
+  }
+  .form-check-input {
+    margin: 0rem 1rem;
+  }
+  .main-container {
+    margin: 5rem 0rem !important;
+  }
+ .forms {
+    background-color: aliceblue;
+  }
+  .browser-default {
+    margin-top: 1rem;
+  }
+  .form-check {
+    float: left;
+  }
+.form-check-input {
+  margin-top: 0.5rem;
+}
+.view {
+  margin-top: 2rem;
+}
+#viewUser {
+align-items: center !important;
+margin-left: auto !important;
+margin-right: auto !important;
+}

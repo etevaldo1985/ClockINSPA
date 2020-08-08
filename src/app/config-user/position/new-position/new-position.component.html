@@ -1,0 +1,37 @@
+
+<div class="container main-container">
+  <div class="col-md-6">
+    <form novalidate [formGroup]='positionForm'  (ngSubmit)='savePosition()' class="text-center border border-light p-5 forms" action="#!">
+
+      <p class="h4 mb-4">New Position</p>
+
+
+      <input  id="defaultForm-edit-name" class="form-control" formControlName='name' placeholder="New position name" [ngClass]="{'is-invalid' : displayMessage.name}"/>
+
+              <span class="text-danger"
+                        *ngIf="displayMessage.name">
+                        <p [innerHTML]="displayMessage.name"></p>
+                      </span>
+
+                      <input type="hidden" id="id" name="id" value="">
+
+
+
+
+      <!-- Sign in button -->
+      <br/>
+      <button class="btn btn-outline-dark waves-effect" [disabled]='!positionForm.valid' type="submit">Save</button>
+      <button class="btn btn-outline-dark waves-effect" [routerLink]="['/config/position']">Back</button>
+
+
+
+
+
+    </form>
+
+  </div>
+
+</div>
+
+
+

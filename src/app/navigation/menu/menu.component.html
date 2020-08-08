@@ -1,0 +1,59 @@
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark  lighten-1">
+  <div [ngSwitch]='checkUSerLogged()'>
+    <div>
+      <a *ngSwitchCase='true' class="navbar-brand" [routerLink]="['main/main-user']">Time Control</a>
+    </div>
+    <div>
+      <a *ngSwitchCase='false' class="navbar-brand" href="#">Time Control</a>
+    </div>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+    <ul [ngSwitch]='checkUSerLogged()' class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a *ngSwitchCase='true' [routerLink]="['main/main-user']" class="nav-link" href="#">Login/Logout
+
+        </a>
+      </li>
+      <li class="nav-item">
+        <a *ngSwitchCase='true' [routerLink]="['user/user-list']" class="nav-link" href="#">Users
+
+        </a>
+      </li>
+      <li class="nav-item">
+        <a *ngSwitchCase='true' [routerLink]="['config/type']" class="nav-link" href="#">Type
+
+        </a>
+      </li>
+      <li class="nav-item">
+        <a *ngSwitchCase='true' [routerLink]="['config/position']" class="nav-link" href="#">Position
+
+        </a>
+      </li>
+      <li class="nav-item">
+        <a *ngSwitchCase='true' [routerLink]="['config/group']" class="nav-link" href="#">Group
+
+        </a>
+      </li>
+    </ul>
+    <ul [ngSwitch]='checkUSerLogged()' class="navbar-nav ml-auto nav-flex-icons">
+
+      <li *ngSwitchCase='true'  class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Profile
+          <i class="fas fa-user"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+          aria-labelledby="navbarDropdownMenuLink-333">
+          <a class="dropdown-item">{{ email }}
+          </a>
+          <a class="dropdown-item" (click)='logOut()'>LogOut</a>
+
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

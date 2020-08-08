@@ -1,0 +1,80 @@
+<!-- Table with panel -->
+<div class="card card-cascade narrower">
+
+  <!--Card image-->
+  <div
+    class="view view-cascade  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center" id="base">
+
+    <div>
+      <button type="submit" [routerLink]="['/config/new-type']"class="btn btn-outline-black btn-rounded btn-sm px-2">
+        <i class="fas type fa-plus-circle mt-0 fa-2x"></i>
+      </button>
+      <button type="button" [disabled]='!check'   [routerLink]="['/config/edit-type', id]"  class="btn btn-outline-black btn-rounded btn-sm px-2">
+        <i class="fas fa-pencil-alt mt-0 fa-2x"></i>
+      </button>
+      <button type="button" [disabled]='!check'   [routerLink]="['/config/delete-type', id]" class="btn btn-outline-black btn-rounded btn-sm px-2">
+        <i class="far type fa-trash-alt mt-0 fa-2x"></i>
+      </button>
+    </div>
+
+    <a href="" class="black-text mx-3">Types</a>
+
+    <div>
+      <button type="button" [routerLink]="['/main/main-user']" class="btn btn-outline-black btn-rounded btn-sm px-2">
+        <i class="fas type fa-arrow-circle-left mt-0 fa-2x"></i>
+      </button>
+    </div>
+
+
+  </div>
+  <!--/Card image-->
+
+  <div class="px-4">
+
+    <div class="table-wrapper">
+      <!--Table-->
+      <table class="table table-hover mb-0">
+
+        <!--Table head-->
+        <thead>
+          <tr>
+            <th>
+              <input class="form-check-input" type="checkbox"    id="checkbox">
+              <label class="form-check-label" for="checkbox" id="checkbox" class="mr-2 label-table"></label>
+            </th>
+            <th class="th-lg">
+              <a>ID
+                <i class="fas type fa-sort ml-1 type"></i>
+              </a>
+            </th>
+            <th class="th-lg">
+              <a href="">Name
+                <i class="fas type fa-sort ml-1 type" ></i>
+              </a>
+            </th>
+
+          </tr>
+        </thead>
+        <!--Table head-->
+
+        <!--Table body-->
+        <tbody *ngFor='let type of type'>
+          <tr>
+            <th scope="row">
+              <input class="form-check-input" type="checkbox"  (click)='checkedBox(type.id)' id="checkbox1">
+              <label class="form-check-label" for="checkbox1" class="label-table"></label>
+            </th>
+            <td>{{ type.id }}</td>
+            <td>{{ type.name | uppercase }}</td>
+          </tr>
+
+        </tbody>
+        <!--Table body-->
+      </table>
+      <!--Table-->
+    </div>
+
+  </div>
+
+</div>
+<!-- Table with panel -->

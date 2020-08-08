@@ -1,0 +1,41 @@
+<div class="container main-container">
+  <div class="col-md-6">
+    <form novalidate [formGroup]='userForm' class="text-center border border-light p-5 forms"
+      action="#!">
+
+      <p class="h4 mb-4">Log In / Log Out</p>
+
+
+      <input id="defaultForm-edit-code" class="form-control" formControlName='code' placeholder="User Code"
+        [ngClass]="{'is-invalid' : displayMessage.code}" />
+
+      <span class="text-danger" *ngIf="displayMessage.code">
+        <p [innerHTML]="displayMessage.code"></p>
+      </span>
+
+      <br/>
+      <input id="defaultForm-edit-password" class="form-control" formControlName='password' placeholder="Password"
+        [ngClass]="{'is-invalid' : displayMessage.password}" />
+
+      <span class="text-danger" *ngIf="displayMessage.password">
+        <p [innerHTML]="displayMessage.password"></p>
+      </span>
+      <br/>
+
+      <input type="hidden" id="id" name="id" value="">
+
+      <!-- Sign in button -->
+      <br />
+      <button class="btn btn-outline-dark waves-effect" [disabled]='!userForm.valid' (click)='saveUserLogin()' type="submit">Login</button>
+      <button class="btn btn-outline-dark waves-effect" [disabled]='!userForm.valid' (click)='logOut()' type="submit">Logout</button>
+      <button type="button" class="btn btn-outline-dark waves-effect" [routerLink]="['/user/user-list']">Back</button>
+
+
+
+
+
+    </form>
+
+  </div>
+
+</div>

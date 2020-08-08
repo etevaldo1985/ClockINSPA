@@ -1,0 +1,89 @@
+<!-- Jumbotron -->
+<div class="jumbotron text-center">
+
+  <!-- Title -->
+  <h2 class="card-title h2">The better away to control logins and logouts</h2>
+  <!-- Subtitle -->
+  <p class="blue-text my-4 font-weight-bold">Hours control Software</p>
+
+  <!-- Grid row -->
+  <div class="row d-flex justify-content-center">
+
+    <!-- Grid column -->
+    <div class="col-xl-7 pb-2">
+
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga aliquid dolorem ea distinctio exercitationem delectus qui, quas eum architecto, amet quasi accusantium, fugit consequatur ducimus obcaecati numquam molestias hic itaque accusantium doloremque laudantium, totam rem aperiam.</p>
+
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  <hr class="my-4">
+
+
+  <div class="pt-2" [ngSwitch]='userLogged()'>
+    <div *ngSwitchCase="false">
+    <button type="button" [routerLink]="['/clock/clock-screen']" class="btn btn-outline-dark waves-effect" >Star Working<span class="fas fa-coins ml-1"></span></button>
+    <button type="button" class="btn btn-outline-dark waves-effect"  data-toggle='modal' data-target="#modalLogin" >Login<span class="fas fa-sign-in-alt ml-1"></span></button>
+  </div>
+
+  <div *ngSwitchCase="true">
+    <button type="button" class="btn btn-outline-dark waves-effect">Star Working<span class="fas fa-coins ml-1"></span></button>
+
+  </div>
+  </div>
+
+  <div class="modal fade" id="modalLogin" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-md" role='document'>
+      <div class="modal-content">
+        <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold" id="modal-basic-title">Login</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form  novalidate [formGroup]="loginForm" (ngSubmit)='login()'>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5 form-group">
+
+            <input type="email" id="defaultForm-email" class="form-control" formControlName='email' [ngClass]="{'is-invalid' : displayMessage.email}"/>
+            <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
+            <span class="text-danger"
+                      *ngIf="displayMessage.email">
+                      <p [innerHTML]="displayMessage.email"></p>
+                    </span>
+          </div>
+
+          <div class="md-form mb-4 form-group">
+
+            <input type="password" id="defaultForm-pass" class="form-control" formControlName='password' [ngClass]="{'is-invalid' : displayMessage.password}"/>
+            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+            <span class="text-danger"
+                      *ngIf="displayMessage.password">
+                      <p [innerHTML]="displayMessage.password"></p>
+                    </span>
+          </div>
+
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button class="btn btn-outline-dark waves-effect" type="submit" (click) ='login()' [disabled]='!loginForm.valid'  data-dismiss="modal">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+  </div>
+
+</div>
+<!-- Jumbotron -->
+
+
+
+
+
+
+
