@@ -127,6 +127,61 @@
         "id": 8
       },
       "id": 5
+    },
+    {
+      "loginTime": "2019-12-23 10:15:00",
+      "logoutTime": "2019-12-23 11:20:00",
+      "user": {
+        "name": "Jose",
+        "email": "jose@gmail.com",
+        "password": "123123",
+        "passConfirm": "123123",
+        "type": "5",
+        "position": "1",
+        "group": "1",
+        "code": "3096",
+        "active": true,
+        "id": 8
+      },
+      "totalTime": 65,
+      "id": 6
+    },
+    {
+      "loginTime": "2019-08-01 10:15:00",
+      "logoutTime": "2019-08-01 12:15:00",
+      "date": "20190801",
+      "user": {
+        "name": "Jose",
+        "email": "jose@gmail.com",
+        "password": "123123",
+        "passConfirm": "123123",
+        "type": "5",
+        "position": "1",
+        "group": "1",
+        "code": "3096",
+        "active": true,
+        "id": 8
+      },
+      "totalTime": 120,
+      "id": 7
+    },
+    {
+      "loginTime": "2020-08-10 10:22:21",
+      "logoutTime": "2020-08-10 10:22:39",
+      "totalTime": 0.3,
+      "user": {
+        "name": "Jose",
+        "email": "jose@gmail.com",
+        "password": "123123",
+        "passConfirm": "123123",
+        "type": "5",
+        "position": "1",
+        "group": "1",
+        "code": "3096",
+        "active": true,
+        "id": 8
+      },
+      "id": 8
     }
   ],
   "type": [

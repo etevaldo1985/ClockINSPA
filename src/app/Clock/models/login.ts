@@ -7,4 +7,5 @@ export class Login {
   loginTime: string;
   logoutTime: string;
   totalTime: any;
+  date: string;
 }

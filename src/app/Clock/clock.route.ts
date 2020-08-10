@@ -1,3 +1,4 @@
+import { ClockManualComponent } from './clock-manual/clock-manual.component';
 import { ClockScreenComponent } from './clock-screen/clock-screen.component';
 
 import { Routes, RouterModule } from '@angular/router';
@@ -8,7 +9,8 @@ import { ClockAppComponent } from './clock.app.component';
 const clockRoutingConfig: Routes = [
   {path: '', component: ClockAppComponent,
 children: [
-  {path: 'clock-screen', component: ClockScreenComponent}
+  {path: 'clock-screen', component: ClockScreenComponent},
+  {path: 'clock-manual', component: ClockManualComponent}
 ]}
 ];
 
