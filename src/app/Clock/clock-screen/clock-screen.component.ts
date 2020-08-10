@@ -10,7 +10,7 @@ import { LocalStorageUtils } from 'src/app/utils/localstorageutils';
 import { User } from 'src/app/main/models/user';
 
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ConfigUserService } from 'src/app/config-user/services/config-user.service';
 import { CustomValidators } from 'ng2-validation';
 import { Observable, fromEvent, merge } from 'rxjs';
@@ -46,7 +46,8 @@ export class ClockScreenComponent implements OnInit, AfterViewInit {
               private clockService: ClockService,
               private toastr: ToastrService,
               private router: Router,
-              private configUserService: ConfigUserService) {
+              private configUserService: ConfigUserService,
+              private route: ActivatedRoute) {
 
                 this.validationMessages = {
 
@@ -69,6 +70,21 @@ export class ClockScreenComponent implements OnInit, AfterViewInit {
       password: ['', [Validators.required, CustomValidators.rangeLength([6, 15])]]
     });
 
+    this.route.params.subscribe(
+      params => {
+        this.clockService.getUserById(params.id)
+        .subscribe(
+          user => {
+
+            this.user = user;
+            this.fillUpForm();
+
+            },
+            error => console.log(error));
+      }
+    );
+
+
 
   }
 
@@ -81,6 +97,13 @@ export class ClockScreenComponent implements OnInit, AfterViewInit {
       this.displayMessage = this.genericValidator.processMessages(this.userForm);
     });
       }
+
+      fillUpForm() {
+
+        this.userForm.patchValue({
+          code: this.user.code
+        });
+  }
 
       logOut() {
         this.user = Object.assign({}, this.user, this.userForm.value);
@@ -100,22 +123,29 @@ export class ClockScreenComponent implements OnInit, AfterViewInit {
               this.toastr.error('User not logged in or Password/code incorrect', 'Ops!!!');
             }else{
 
-              found[0].logoutTime = moment().format('YYYY-MM-DD HH:mm:ss');
+              const token = this.localStorage.getUserToken();
+              const token2 = this.user.code;
+              if (token === token2.toString(token2)){
 
-              const end = moment(found[0].logoutTime, 'YYYY-MM-DD HH:mm:ss');
+                found[0].logoutTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
-              console.log(found[0].logoutTime);
-              const start = moment(found[0].loginTime, 'YYYY-MM-DD HH:mm:ss');
+                const end = moment(found[0].logoutTime, 'YYYY-MM-DD HH:mm:ss');
 
-              const dif = moment.duration(end.diff(start));
-              found[0].totalTime = dif.asMinutes();
-              this.clockService.logOut(found[0])
+                console.log(found[0].logoutTime);
+                const start = moment(found[0].loginTime, 'YYYY-MM-DD HH:mm:ss');
+
+                const dif = moment.duration(end.diff(start));
+                found[0].totalTime = dif.asMinutes();
+                this.clockService.logOut(found[0])
         .subscribe(
           success => {this.processSuccess(success); },
           fail => {this.processFail(fail); }
         );
 
-
+              }else {
+                console.log('You must use the same code of the logged user');
+                this.toastr.error('You must use the same code of the logged user', 'Ops!!!');
+              }
             }
           }
         );
@@ -142,8 +172,11 @@ export class ClockScreenComponent implements OnInit, AfterViewInit {
               console.log('User not registered or password/code incorrect');
               this.toastr.error('User not registered or password/code incorrect', 'Ops!!!');
             }else {
+              const token = this.localStorage.getUserToken();
+              const token2 = this.user.code;
+              if (token === token2.toString(token2)) {
 
-              this.clockService.getLogins()
+                this.clockService.getLogins()
               .subscribe(
                 login => {
 
@@ -173,7 +206,10 @@ export class ClockScreenComponent implements OnInit, AfterViewInit {
                 }
               );
 
-
+              }else{
+                console.log('You must use the same code of the logged user');
+                this.toastr.error('You must use the same code of the logged user', 'Ops!!!');
+              }
 
             }
           }

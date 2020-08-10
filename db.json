@@ -182,6 +182,24 @@
         "id": 8
       },
       "id": 8
+    },
+    {
+      "loginTime": "2020-08-10 10:58:37",
+      "logoutTime": "2020-08-10 11:01:00",
+      "totalTime": 2.3833333333333333,
+      "user": {
+        "id": 1,
+        "name": "Etevaldo",
+        "code": "3094",
+        "password": "123456",
+        "passConfirm": "123456",
+        "active": true,
+        "email": "etevaldo@gmail.com",
+        "type": "5",
+        "position": "1",
+        "group": "2"
+      },
+      "id": 9
     }
   ],
   "type": [

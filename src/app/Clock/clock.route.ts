@@ -9,7 +9,7 @@ import { ClockAppComponent } from './clock.app.component';
 const clockRoutingConfig: Routes = [
   {path: '', component: ClockAppComponent,
 children: [
-  {path: 'clock-screen', component: ClockScreenComponent},
+  {path: 'clock-screen/:id', component: ClockScreenComponent},
   {path: 'clock-manual', component: ClockManualComponent}
 ]}
 ];

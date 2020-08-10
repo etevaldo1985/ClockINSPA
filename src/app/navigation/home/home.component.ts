@@ -103,7 +103,7 @@ ngOnInit(): void {
               this.toastr.error('User not registered or password incorrect', 'Ops!!!');
             }else {
 
-                this.homeService.localStorage.saveToken(this.loginUser.email);
+                this.homeService.localStorage.saveToken(found[0].code.toString(found[0].code));
                 const id = found[0].id;
                 this.homeService.localStorage.saveUser(id.toString());
                 const toast = this.toastr.success('Client logged in succesfully', 'Good Job!', { timeOut: 1000 });

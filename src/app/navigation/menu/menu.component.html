@@ -14,7 +14,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
     <ul [ngSwitch]='checkUSerLogged()' class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a *ngSwitchCase='true' [routerLink]="['main/main-user']" class="nav-link" href="#">Login/Logout
+        <a *ngSwitchCase='true' [routerLink]="['clock/clock-screen', id]" class="nav-link" href="#">Login/Logout
 
         </a>
       </li>
@@ -48,7 +48,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-default"
           aria-labelledby="navbarDropdownMenuLink-333">
-          <a class="dropdown-item">{{ email }}
+          <a class="dropdown-item">{{ code }}
           </a>
           <a class="dropdown-item" (click)='logOut()'>LogOut</a>
 
