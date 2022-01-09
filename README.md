@@ -1,3 +1,13 @@
+<img width="1423" alt="Screen Shot 2022-01-09 at 11 15 15 AM" src="https://user-images.githubusercontent.com/66924405/148697253-00fea3ac-d1f9-4432-aef5-e20bad68e95f.png">
+
+<img width="1423" alt="Screen Shot 2022-01-09 at 11 15 58 AM" src="https://user-images.githubusercontent.com/66924405/148697256-57833de1-8129-4ad9-b8bd-050d2a2ffe66.png">
+
+<img width="1423" alt="Screen Shot 2022-01-09 at 11 16 21 AM" src="https://user-images.githubusercontent.com/66924405/148697258-89dda360-f113-40c3-9cf8-788f3b807fb2.png">
+
+
+
+
+
 # TimeControl
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
